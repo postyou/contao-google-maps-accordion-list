@@ -10,7 +10,7 @@
   "require": {
     "php": "^7.0",
     "contao/core-bundle": "^4.4",
-    " delahaye/dlh_googlemaps " : "^2.4"
+    "delahaye/dlh_googlemaps" : "^2.4"
   },
   "conflict": {
     "contao/core": "*",
