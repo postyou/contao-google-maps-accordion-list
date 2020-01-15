@@ -1,6 +1,6 @@
 <?php
 
-namespace delahaye\googlemaps;
+namespace Postyou\ContaoGoogleMapsAccordionListBundle\Module;
 
 
 class ModuleListAccordionWithMap extends \Module
@@ -44,6 +44,7 @@ class ModuleListAccordionWithMap extends \Module
             $element = new \stdClass();
             $element->name = $elements->title;
             $element->address = $elements->geocoderAddress;
+            $element->logo = \FilesModel::findByUuid($elements->imageSRC)->path;
             $element->icon = \FilesModel::findByUuid($elements->iconSRC)->path;
             $element->phone = $elements->geocoderPhone;
             $element->email = $elements->geocoderEmail;

@@ -1,6 +1,6 @@
 <?php
 
-namespace delahaye\googlemaps;
+namespace Postyou\ContaoGoogleMapsAccordionListBundle\Module;
 
 
 class ModuleList extends \Module
