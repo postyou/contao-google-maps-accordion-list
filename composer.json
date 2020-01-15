@@ -1,0 +1,31 @@
+{
+  "name": "postyou/contao-google-maps-accordion-list-bundle",
+  "type": "contao-bundle",
+  "description": "Extension for delahaye/dlh_googlemaps to display locations as accordion list",
+  "authors": [
+    {
+      "name": "Mario Gienapp"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "contao/core-bundle": "^4.4.*",
+    "dlh_googlemaps" : "^2.4"
+  },
+  "conflict": {
+    "contao/core": "*",
+    "contao/manager-plugin": "<2.0 || >=3.0"
+  },
+  "extra": {
+    "contao-manager-plugin": "Postyou\\ContaoGoogleMapsAccordionListBundle\\ContaoManager\\Plugin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Postyou\\ContaoGoogleMapsAccordionListBundle\\": "src/"
+    }
+  },
+  "support": {
+    "issues": "https://github.com/postyou/contao-google-maps-accordion-list-bundle/issues",
+    "source": "https://github.com/postyou/contao-google-maps-accordion-list-bundle"
+  }
+}

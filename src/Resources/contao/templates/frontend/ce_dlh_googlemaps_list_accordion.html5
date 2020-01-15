@@ -1,0 +1,56 @@
+<div class="<?= $this->class ?>">
+    <script>
+        $(window).on('load', function () {
+            $('.ce_accordion.partner-box').each(function (i) {
+                $(this).hover(function () {
+                    window.gmap<?= $this->mapId; ?>_markers[i].setIcon('files/layout/marker_white.svg');
+                } , function () {
+                    window.gmap<?= $this->mapId; ?>_markers[i].setIcon('files/layout/marker.svg');
+                })
+            })
+        });
+    </script>
+    <?php foreach ($this->elements as $element): ?>
+
+
+    <div class="ce_accordion partner-box">
+        <div class="name toggler">
+            <?= $element->name ?>
+        </div>
+        <div class="accordion">
+            <a class="partner-link" href="<?= $element->url ?>"></a>
+            <div class="icon">
+                <img src="<?= $element->icon ?>">
+            </div>
+            <div class="name">
+                <?= $element->name ?>
+            </div>
+            <div class="address">
+                <?= str_replace(', ', '<br>', $element->address) ?>
+            </div>
+            <div class="contact">
+                <a href="mailto:<?= $element->email ?>"><?= $element->email ?></a>
+                <?php if (!empty($element->phone)): ?>
+                    <span>Telefon: <?= $element->phone ?></span>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+
+    <div class="partner-box join-us">
+        <a href="{{link_url::20}}" class="partner-link">
+            Partner werden
+        </a>
+    </div>
+
+    <script>
+        // $('.partner-box').each(function () {
+        //     $(this).click(function (e) {
+        //         if (e.target.nodeName !== 'A') {
+        //             $(this).children('a.partner-link').get(0).click();
+        //         }
+        //     })
+        // })
+    </script>
+</div>
