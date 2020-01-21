@@ -2,7 +2,7 @@
 
 array_insert($GLOBALS['FE_MOD']['miscellaneous'], sizeof($GLOBALS['FE_MOD']['miscellaneous']), array
 (
-'dlh_googlemaps_list' => 'Postyou\ContaoGoogleMapsAccordionListBundle\Module\ModuleListAccordionWithMap'
+'dlh_googlemaps_list' => 'Postyou\ContaoGoogleMapsAccordionListBundle\Module\ModuleList'
 ));
 
 array_insert($GLOBALS['FE_MOD']['miscellaneous'], sizeof($GLOBALS['FE_MOD']['miscellaneous']), array

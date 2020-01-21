@@ -3,14 +3,17 @@
     <?php foreach ($this->elements as $element): ?>
 
         <div class="partner-box">
-            <a class="partner-link" href="<?= $element->url ?>"></a>
+            <a class="partner-link" target="_blank" href="<?= $element->url ?>"></a>
             <div class="icon">
-                <img src="<?= $element->icon ?>">
+                <img src="<?= $element->logo ?>">
             </div>
             <div class="name">
-                <?= $element->name ?>
+                <h5><?= $element->name.', '.$element->place; ?></h5>
             </div>
+
             <div class="address">
+                <?= $element->addressName ?>
+                <br>
                 <?= str_replace(', ', '<br>', $element->address) ?>
             </div>
             <div class="contact">
@@ -23,11 +26,11 @@
 
     <?php endforeach; ?>
 
-    <div class="partner-box join-us">
-        <a href="{{link_url::20}}" class="partner-link">
-            Partner werden
-        </a>
-    </div>
+<!--    <div class="partner-box join-us">-->
+<!--        <a href="{{link_url::20}}" class="partner-link">-->
+<!--            Partner werden-->
+<!--        </a>-->
+<!--    </div>-->
 
     <script>
         $('.partner-box').each(function () {

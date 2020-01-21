@@ -20,7 +20,7 @@ class ModuleListAccordionWithMap extends \Module
 
             $objTemplate = new \BackendTemplate('be_wildcard');
 
-            $objTemplate->wildcard = '### GOOGLE ELEMENTS LIST ###';
+            $objTemplate->wildcard = '### GOOGLE ELEMENTS ACCORDION LIST ###';
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->dlh_googlemap;
 //            $objTemplate->link = $objMap->title;
@@ -37,20 +37,23 @@ class ModuleListAccordionWithMap extends \Module
      */
     protected function compile()
     {
-        $elements = \ElementModel::findAll();
+        $elements = \ElementModel::findBy('published', '1');
 
         $elementsArr = [];
         while ($elements->next()) {
             $element = new \stdClass();
             $element->name = $elements->title;
+            $element->addressName = $elements->addressTitle;
             $element->address = $elements->geocoderAddress;
             $element->logo = \FilesModel::findByUuid($elements->imageSRC)->path;
             $element->icon = \FilesModel::findByUuid($elements->iconSRC)->path;
             $element->phone = $elements->geocoderPhone;
             $element->email = $elements->geocoderEmail;
             $element->url = $elements->url;
+            $matches = [];
+            preg_match('/\d\d\d\d\d/m', $elements->geocoderAddress, $matches, PREG_OFFSET_CAPTURE);
+            $element->place = substr($element->address, $matches[0][1] + 5);
             $elementsArr[] = $element;
-
         }
 
         $this->Template->mapId = $this->dlh_googlemap;
